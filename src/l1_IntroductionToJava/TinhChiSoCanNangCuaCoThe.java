@@ -12,13 +12,10 @@ public class TinhChiSoCanNangCuaCoThe {
         System.out.print("Nhap vao chieu cao (m): ");
         double height = s.nextDouble();
 
-        // Tính BMI theo công thức chuẩn
         double bmi = weight / Math.pow(height, 2);
 
-        // In ra chỉ số BMI
         System.out.printf("Chi so BMI cua ban la: %.2f\n", bmi);
 
-        // Đánh giá theo BMI
         if (bmi < 18.5) {
             System.out.println("Ban dang gay (Underweight)");
         } else if (bmi < 25) {
