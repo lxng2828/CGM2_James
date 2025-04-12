@@ -9,11 +9,11 @@ public class HienThiCacLoaiHinh {
 
         do {
             System.out.println("\n=== MENU ===");
-            System.out.println("1. Print the rectangle");
-            System.out.println("2. Print the square triangle (4 corners)");
-            System.out.println("3. Print isosceles triangle");
-            System.out.println("0. Exit");
-            System.out.print("Enter your choice: ");
+            System.out.println("1. In hinh chu nhat");
+            System.out.println("2. In tam giac vuong (4 goc)");
+            System.out.println("3. In tam giac can");
+            System.out.println("0. Thoat");
+            System.out.print("Nhap lua chon cua ban: ");
             choice = scanner.nextInt();
 
             switch (choice) {
@@ -27,21 +27,21 @@ public class HienThiCacLoaiHinh {
                     printIsoscelesTriangle(scanner);
                     break;
                 case 0:
-                    System.out.println("Goodbye!");
+                    System.out.println("Tam biet!");
                     break;
                 default:
-                    System.out.println("Invalid choice. Try again!");
+                    System.out.println("Lua chon khong hop le. Thu lai!");
             }
         } while (choice != 0);
     }
 
     public static void printRectangle(Scanner scanner) {
-        System.out.print("Enter height: ");
+        System.out.print("Nhap chieu cao: ");
         int height = scanner.nextInt();
-        System.out.print("Enter width: ");
+        System.out.print("Nhap chieu rong: ");
         int width = scanner.nextInt();
 
-        System.out.println("\nRectangle:");
+        System.out.println("\nHinh chu nhat:");
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 System.out.print("* ");
@@ -51,20 +51,20 @@ public class HienThiCacLoaiHinh {
     }
 
     public static void printSquareTriangle(Scanner scanner) {
-        System.out.println("\nChoose corner position:");
-        System.out.println("1. Bottom-left");
-        System.out.println("2. Top-left");
-        System.out.println("3. Bottom-right");
-        System.out.println("4. Top-right");
-        System.out.print("Enter your choice: ");
+        System.out.println("\nChon vi tri goc:");
+        System.out.println("1. Goc duoi trai");
+        System.out.println("2. Goc tren trai");
+        System.out.println("3. Goc duoi phai");
+        System.out.println("4. Goc tren phai");
+        System.out.print("Nhap lua chon cua ban: ");
         int type = scanner.nextInt();
 
-        System.out.print("Enter height: ");
+        System.out.print("Nhap chieu cao: ");
         int height = scanner.nextInt();
 
-        System.out.println("\nSquare triangle:");
+        System.out.println("\nTam giac vuong:");
         switch (type) {
-            case 1: // Bottom-left
+            case 1: // Goc duoi trai
                 for (int i = 1; i <= height; i++) {
                     for (int j = 1; j <= i; j++) {
                         System.out.print("* ");
@@ -72,7 +72,7 @@ public class HienThiCacLoaiHinh {
                     System.out.println();
                 }
                 break;
-            case 2: // Top-left
+            case 2: // Goc tren trai
                 for (int i = height; i >= 1; i--) {
                     for (int j = 1; j <= i; j++) {
                         System.out.print("* ");
@@ -80,7 +80,7 @@ public class HienThiCacLoaiHinh {
                     System.out.println();
                 }
                 break;
-            case 3: // Bottom-right
+            case 3: // Goc duoi phai
                 for (int i = 1; i <= height; i++) {
                     for (int j = 1; j <= height - i; j++) {
                         System.out.print("  ");
@@ -91,7 +91,7 @@ public class HienThiCacLoaiHinh {
                     System.out.println();
                 }
                 break;
-            case 4: // Top-right
+            case 4: // Goc tren phai
                 for (int i = height; i >= 1; i--) {
                     for (int j = 1; j <= height - i; j++) {
                         System.out.print("  ");
@@ -103,15 +103,15 @@ public class HienThiCacLoaiHinh {
                 }
                 break;
             default:
-                System.out.println("Invalid triangle type!");
+                System.out.println("Loai tam giac khong hop le!");
         }
     }
 
     public static void printIsoscelesTriangle(Scanner scanner) {
-        System.out.print("Enter height: ");
+        System.out.print("Nhap chieu cao: ");
         int height = scanner.nextInt();
 
-        System.out.println("\nIsosceles triangle:");
+        System.out.println("\nTam giac can:");
         for (int i = 1; i <= height; i++) {
             for (int j = 1; j <= height - i; j++) {
                 System.out.print("  ");
@@ -123,3 +123,4 @@ public class HienThiCacLoaiHinh {
         }
     }
 }
+
