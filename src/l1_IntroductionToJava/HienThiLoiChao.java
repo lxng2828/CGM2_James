@@ -8,5 +8,6 @@ public class HienThiLoiChao {
         Scanner s = new Scanner(System.in);
         String name = s.nextLine();
         System.out.println("xin chao " + name);
+        s.close();
     }
 }

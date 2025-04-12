@@ -18,6 +18,7 @@ public class TimPhanTuNhoNhat {
         }
         System.out.println();
         System.out.printf("phan tu nho nhat trong mang la %d", findMin(arr));
+        s.close();
     }
 
     public static int findMin(int[] arr) {

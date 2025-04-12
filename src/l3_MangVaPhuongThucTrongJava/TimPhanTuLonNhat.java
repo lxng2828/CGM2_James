@@ -18,6 +18,7 @@ public class TimPhanTuLonNhat {
         }
         System.out.println();
         System.out.printf("phan tu lon nhat trong mang la %d",findMax(arr));
+        s.close();
     }
 
     public static int findMax(int[] arr) {

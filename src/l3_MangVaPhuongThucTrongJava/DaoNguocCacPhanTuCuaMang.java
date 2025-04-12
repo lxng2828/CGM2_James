@@ -22,6 +22,7 @@ public class DaoNguocCacPhanTuCuaMang {
         for (int a : arr) {
             System.out.print(a + " ");
         }
+        scanner.close();
     }
 
     public static int[] reverse(int[] arr) {
@@ -36,4 +37,5 @@ public class DaoNguocCacPhanTuCuaMang {
         }
         return arr;
     }
+
 }

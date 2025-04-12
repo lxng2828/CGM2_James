@@ -22,6 +22,7 @@ public class TimGiaTriTrongMang {
         String name = s.nextLine();
         int index = findIndex(arr, name);
         System.out.printf("vi tri cua sinh vien trong danh sach la %d", (index + 1));
+        s.close();
     }
 
     public static int findIndex(String[] arr, String s) {

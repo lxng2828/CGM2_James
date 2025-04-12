@@ -21,6 +21,7 @@ public class ChuyenDoiTienTe {
             double usd = scanner.nextDouble();
             double vnd = usd * 23000;
             System.out.println(usd + " USD = " + vnd + " VND");
+            scanner.close();
         }
     }
 }

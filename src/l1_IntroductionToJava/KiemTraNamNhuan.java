@@ -20,5 +20,6 @@ public class KiemTraNamNhuan {
         } else {
             System.out.println(year + " khong la nam nhuan");
         }
+        s.close();
     }
 }
