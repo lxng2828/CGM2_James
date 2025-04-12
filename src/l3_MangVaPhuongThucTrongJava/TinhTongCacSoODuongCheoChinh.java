@@ -1,8 +1,6 @@
 package l3_MangVaPhuongThucTrongJava;
 
-import java.util.Scanner;
-
-public class TinhTongCacSoOMotCotXacDinh {
+public class TinhTongCacSoODuongCheoChinh {
     public static void main(String[] args) {
         int[][] arr = {
                 { 1, 2, 3, 4, 5 },
@@ -11,15 +9,11 @@ public class TinhTongCacSoOMotCotXacDinh {
                 { 16, 17, 18, 19, 20 },
                 { 21, 22, 23, 24, 25 }
         };
-        System.out.print("Nhap chi so cot (tu 1 den 5): ");
-        Scanner s = new Scanner(System.in);
-        int colIndex = s.nextInt();
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
-            sum += arr[i][colIndex - 1];
+            sum += arr[i][i];
         }
-        System.out.println("Tong cac so trong cot " + colIndex + " la: " + sum);
-        s.close();
-
+        System.out.println("Tong cac so tren duong cheo chinh la: " + sum);
     }
 }
+
