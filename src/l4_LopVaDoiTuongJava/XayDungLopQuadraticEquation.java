@@ -33,7 +33,7 @@ public class XayDungLopQuadraticEquation {
             System.out.println("Phuong trinh co nghiem kep:");
             System.out.println("Nghiem (x1 = x2) = " + root);
         } else {
-            System.out.println("Phuong trinh khong co nghiem thuc");
+            System.out.println("Phuong trinh vo nghiem");
         }
 
         scanner.close();
