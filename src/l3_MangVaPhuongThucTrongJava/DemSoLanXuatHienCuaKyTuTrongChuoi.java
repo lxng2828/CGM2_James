@@ -22,4 +22,3 @@ public class DemSoLanXuatHienCuaKyTuTrongChuoi {
         scanner.close();
     }
 }
-
