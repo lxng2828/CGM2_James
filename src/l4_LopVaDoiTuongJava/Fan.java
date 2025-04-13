@@ -48,9 +48,9 @@ public class Fan {
 
     public String toString() {
         if (on) {
-            return "Fan is on. Speed: " + speed + ", Color: " + color + ", Radius: " + radius;
+            return "Quat dang bat. toc do: " + speed + ", mau: " + color + ", ban kinh: " + radius;
         } else {
-            return "Fan is off. Color: " + color + ", Radius: " + radius;
+            return "Quat dang tat. mau: " + color + ", ban kinh: " + radius;
         }
     }
 }
