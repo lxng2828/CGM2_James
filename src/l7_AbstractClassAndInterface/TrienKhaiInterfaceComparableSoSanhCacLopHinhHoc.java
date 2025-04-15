@@ -2,7 +2,7 @@ package l7_AbstractClassAndInterface;
 
 import java.util.Arrays;
 
-public class CircleComparatorTest {
+public class TrienKhaiInterfaceComparableSoSanhCacLopHinhHoc {
     public static void main(String[] args) {
         Circle[] circles = new Circle[3];
         circles[0] = new Circle(3.6);
