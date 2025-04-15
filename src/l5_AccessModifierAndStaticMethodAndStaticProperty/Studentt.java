@@ -1,4 +1,4 @@
-package l5_AccessModifier_StaticMethod_StaticProperty;
+package l5_AccessModifierAndStaticMethodAndStaticProperty;
 
 public class Studentt {
     private String name = "John";
