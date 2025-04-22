@@ -1,6 +1,6 @@
 package l7_AbstractClassAndInterface;
 
-public class ComparableCircle extends Circle implements Comparable<ComparableCircle> {
+public class ComparableCircle extends Circle2 implements Comparable<ComparableCircle> {
     public ComparableCircle() {
         super();
     }
@@ -15,9 +15,11 @@ public class ComparableCircle extends Circle implements Comparable<ComparableCir
 
     @Override
     public int compareTo(ComparableCircle o) {
-        if (getRadius() > o.getRadius()) return 1;
-        else if (getRadius() < o.getRadius()) return -1;
-        else return 0;
+        if (getRadius() > o.getRadius())
+            return 1;
+        else if (getRadius() < o.getRadius())
+            return -1;
+        else
+            return 0;
     }
 }
-
