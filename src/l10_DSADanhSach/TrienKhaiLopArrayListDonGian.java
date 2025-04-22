@@ -1,6 +1,6 @@
 package l10_DSADanhSach;
 
-public class MyArrayListTest {
+public class TrienKhaiLopArrayListDonGian {
     public static void main(String[] args) {
         // Test constructor mac dinh
         MyArrayList<Integer> list1 = new MyArrayList<>();
