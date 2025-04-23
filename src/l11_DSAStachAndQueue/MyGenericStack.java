@@ -1,7 +1,6 @@
 package l11_DSAStachAndQueue;
 
-import java.util.EmptyStackException; // Su dung exception co ban cua Java
-
+import java.util.EmptyStackException;
 public class MyGenericStack<T> {
 
     private static class Node<T> {
@@ -31,10 +30,7 @@ public class MyGenericStack<T> {
 
     public T pop() {
         if (isEmpty()) {
-            // Su dung EmptyStackException la mot cach xu ly loi co ban va chuan
             throw new EmptyStackException();
-            // Hoac tra ve null neu muon don gian hon, nhung throw exception ro rang hon
-            // return null;
         }
         T data = top.data;
         top = top.next;
