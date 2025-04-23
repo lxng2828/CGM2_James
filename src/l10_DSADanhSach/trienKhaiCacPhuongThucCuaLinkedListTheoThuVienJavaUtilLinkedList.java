@@ -1,6 +1,6 @@
 package l10_DSADanhSach;
 
-public class trienKhaiCacPhuongThucCuaLinkedListTheoThuVienJavaUtilLinkedList {
+public class TrienKhaiCacPhuongThucCuaLinkedListTheoThuVienJavaUtilLinkedList {
 
     public static void main(String[] args) {
         System.out.println("--- Demo MyLinkedList2 ---");
