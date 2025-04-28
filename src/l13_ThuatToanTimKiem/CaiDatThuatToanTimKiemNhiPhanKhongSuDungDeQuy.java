@@ -1,4 +1,5 @@
-// 
+package l13_ThuatToanTimKiem;
+
 public class CaiDatThuatToanTimKiemNhiPhanKhongSuDungDeQuy {
     static int[] list = {2, 4, 7, 10, 11, 45, 50, 59, 60, 66, 69, 70, 79};
 
