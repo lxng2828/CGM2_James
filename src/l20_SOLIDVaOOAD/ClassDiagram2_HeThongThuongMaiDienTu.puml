@@ -1,0 +1,167 @@
+@startuml Hệ thống Thương mại điện tử
+
+abstract class User {
+    + userID: String
+    + username: String
+    + passwordHash: String
+    + email: String
+    + phone: String
+    + login()
+    + logout()
+}
+
+class Customers extends User {
+    + customerID: String
+    + address: String
+    + registrationDate: Date
+    + viewOrderHistory()
+    + updateProfile()
+}
+
+class Sales extends User {
+    + salesID: String
+    + department: String
+    + manageProducts()
+    + respondToChats()
+}
+
+class Guest extends User {
+    + guestSessionID: String
+    + browseProducts()
+}
+
+class Products {
+    + productID: String
+    + name: String
+    + description: String
+    + price: double
+    + stockQuantity: int
+    + imageUrl: String
+    + getProductDetails()
+    + updateStock(quantity: int)
+}
+
+class ProductTypes {
+    + typeID: String
+    + typeName: String
+    + description: String
+    + listProductsByType()
+}
+
+class Providers {
+    + providerID: String
+    + providerName: String
+    + contactInfo: String
+    + listProductsByProvider()
+}
+
+class Promotions {
+    + promotionID: String
+    + description: String
+    + discountPercentage: float
+    + discountAmount: double
+    + startDate: Date
+    + endDate: Date
+    + couponCode: String
+    + checkValidity()
+    + applyPromotion(order: Orders)
+}
+
+class ShoppingCarts {
+    + cartID: String
+    + creationDate: Date
+    + lastModified: Date
+    + addItem(product: Products, quantity: int)
+    + removeItem(productID: String)
+    + updateQuantity(productID: String, quantity: int)
+    + viewCartDetails()
+    + calculateTotal(): double
+}
+
+class CartItem {
+    + productID: String
+    + quantity: int
+    + priceAtAddition: double
+    + getSubtotal(): double
+}
+
+class Orders {
+    + orderID: String
+    + orderDate: Date
+    + status: String
+    + shippingAddress: String
+    + totalAmount: double
+    + createOrder()
+    + cancelOrder()
+    + trackOrderStatus()
+    + calculateTotalAmount()
+}
+
+class OrderItem {
+    + productID: String
+    + quantity: int
+    + priceAtOrder: double
+    + getSubtotal(): double
+}
+
+class Payments {
+    + paymentID: String
+    + paymentDate: Date
+    + amount: double
+    + paymentMethod: String
+    + status: String
+    + processPayment()
+    + issueRefund()
+}
+
+class ShippingOrders {
+    + shippingID: String
+    + shippingDate: Date
+    + estimatedDeliveryDate: Date
+    + actualDeliveryDate: Date
+    + shippingCarrier: String
+    + trackingNumber: String
+    + status: String
+    + updateShippingStatus(newStatus: String)
+}
+
+class ChatSession {
+    + sessionID: String
+    + startTime: DateTime
+    + endTime: DateTime
+    + status: String
+    + sendMessage(userID: String, message: String)
+    + getMessageHistory(): List<ChatMessage>
+}
+
+class ChatMessage {
+    + messageID: String
+    + senderID: String
+    + content: String
+    + timestamp: DateTime
+}
+
+User <|-- Customers : "là một loại"
+User <|-- Sales : "là một loại"
+User <|-- Guest : "là một loại"
+
+Products "0..*" -- "1" ProductTypes : "được phân loại theo >"
+Products "0..*" -- "1" Providers : "được cung cấp bởi >"
+Products "0..*" -- "0..*" Promotions : "có thể có"
+
+Customers "1" -- "0..1" ShoppingCarts : "sở hữu >"
+Guest "1" -- "0..1" ShoppingCarts : "sử dụng >"
+ShoppingCarts "1" *-- "0..*" CartItem : "chứa >"
+CartItem "1" -- "1" Products : "tham chiếu đến >"
+
+Customers "1" -- "0..*" Orders : "đặt >"
+Orders "1" *-- "1..*" OrderItem : "bao gồm >"
+OrderItem "1" -- "1" Products : "là của sản phẩm >"
+Orders "1" -- "1..*" Payments : "có >"
+Orders "1" -- "1" ShippingOrders : "được vận chuyển bởi >"
+
+ChatSession "1" -- "2..*" User : "có sự tham gia của >"
+ChatSession "1" *-- "0..*" ChatMessage : "gồm có >"
+ChatMessage "1" -- "1" User : "được gửi bởi >"
+
+@enduml
