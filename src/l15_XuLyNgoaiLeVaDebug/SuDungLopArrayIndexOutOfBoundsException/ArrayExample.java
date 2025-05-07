@@ -10,10 +10,10 @@ public class ArrayExample {
         Integer[] integerArray = new Integer[100];
         System.out.println("Danh sach phan tu cua mang: ");
         for (int i = 0; i < 100; i++) {
-            integerArray[i] = randomGenerator.nextInt(101); // Tao so ngau nhien tu 0 den 100
+            integerArray[i] = randomGenerator.nextInt(101); 
             System.out.print(integerArray[i] + " ");
         }
-        System.out.println(); // Them dong moi cho de nhin
+        System.out.println(); 
         return integerArray;
     }
 
@@ -33,7 +33,7 @@ public class ArrayExample {
         } catch (java.util.InputMismatchException e) {
             System.err.println("Vui long chi nhap so nguyen cho chi so.");
         } finally {
-            inputScanner.close(); // Dong Scanner de tranh ro ri tai nguyen
+            inputScanner.close();
         }
 
         System.out.println("Ket thuc chuong trinh.");
