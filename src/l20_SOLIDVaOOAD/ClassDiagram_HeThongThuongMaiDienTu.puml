@@ -1,0 +1,121 @@
+@startuml Hệ thống thương mại điện tử
+
+class NguoiDung {
+    -userID: String
+    -tenDangNhap: String
+    -matKhau: String
+    -hoTen: String
+    -email: String
+    -soDienThoai: String
+    +dangNhap(): Boolean
+    +dangXuat(): void
+    +capNhatThongTin(): void
+}
+
+class KhachHang {
+    -diaChiGiaoHang: List<String>
+    -lichSuDonHang: List<DonHang>
+    +themDiaChi(diaChi: String): void
+    +xemLichSuMuaHang(): List<DonHang>
+    +quanLyGioHang(): GioHang
+}
+
+class NhanVien {
+    -maNhanVien: String
+    -vaiTro: String
+    -ngayVaoLam: Date
+    +xemQuyenHan(): List<String>
+}
+
+class SanPham {
+    -maSanPham: String
+    -tenSanPham: String
+    -moTa: String
+    -giaBan: Double
+    -hinhAnhUrl: String
+    +xemChiTiet(): SanPham
+    +kiemTraTonKho(): Boolean
+}
+
+class DanhMuc {
+    -maDanhMuc: String
+    -tenDanhMuc: String
+    +xemSanPhamTrongDanhMuc(): List<SanPham>
+}
+
+class GioHang {
+    -maGioHang: String
+    +themSanPham(sanPham: SanPham, soLuong: Integer): void
+    +xoaSanPham(chiTiet: ChiTietGioHang): void
+    +capNhatSoLuong(chiTiet: ChiTietGioHang, soLuongMoi: Integer): void
+    +tinhTongTien(): Double
+    +tienHanhThanhToan(): DonHang
+}
+
+class ChiTietGioHang {
+    -soLuong: Integer
+    +tinhThanhTien(): Double
+}
+
+class DonHang {
+    -maDonHang: String
+    -ngayDatHang: Date
+    -trangThai: String
+    -diaChiNhanHang: String
+    -tongTien: Double
+    +xemChiTietDonHang(): List<ChiTietDonHang>
+    +capNhatTrangThai(trangThaiMoi: String): void
+    +theoDoiVanChuyen(): String
+}
+
+class ChiTietDonHang {
+    -soLuong: Integer
+    -giaTaiThoiDiemMua: Double
+    +tinhThanhTien(): Double
+}
+
+class ThanhToan {
+    -maThanhToan: String
+    -phuongThuc: String
+    -soTien: Double
+    -ngayThanhToan: Date
+    -trangThai: String
+    +xacNhanThanhToan(): Boolean
+}
+
+class KhuyenMai {
+    -maKhuyenMai: String
+    -moTa: String
+    -loaiGiamGia: String
+    -giaTriGiam: Double
+    -ngayBatDau: Date
+    -ngayKetThuc: Date
+    +apDungKhuyenMai(gioHang: GioHang): Boolean
+}
+
+class TonKho {
+    -soLuongHienCo: Integer
+    +kiemTraSoLuong(soLuongCan: Integer): Boolean
+    +capNhatSoLuong(thayDoi: Integer): void
+}
+
+KhachHang --|> NguoiDung
+NhanVien --|> NguoiDung
+
+KhachHang "1" o-- "1" GioHang : owns >
+KhachHang "1" -- "0..*" DonHang : places >
+DonHang "1" -- "1" KhachHang : belongs to >
+DonHang "1" o-- "1" ThanhToan : has >
+DonHang "1" *-- "1..*" ChiTietDonHang : includes >
+ChiTietDonHang "1" -- "1" SanPham : relates to >
+
+GioHang "1" *-- "0..*" ChiTietGioHang : contains >
+ChiTietGioHang "1" -- "1" SanPham : based on >
+
+DanhMuc "1" o-- "0..*" SanPham : classifies >
+SanPham "1" -- "1" TonKho : managed by >
+
+KhuyenMai "0..*" -- "0..*" SanPham : applies to >
+KhuyenMai "0..*" -- "0..*" DanhMuc : applies to >
+
+@enduml

@@ -1,0 +1,84 @@
+@startuml Hệ thống thương mại điện tử
+
+left to right direction
+
+
+
+actor "Khách hàng"
+actor "Khách hàng tiềm năng"
+actor "Người bán hàng"
+actor "Quản lý bán hàng"
+actor "Quản lý kho"
+actor "Quản trị hệ thống"
+
+
+usecase "Xem trang chủ"
+usecase "Xem sản phẩm"
+usecase "Xem chi tiết sản phẩm"
+usecase "Tìm kiếm sản phẩm"
+usecase "Xem khuyến mãi"
+usecase "Xem so sánh"
+usecase "Quản lý giỏ hàng"
+usecase "Mua hàng"
+usecase "Chat với người bán hàng"
+usecase "Đăng ký tài khoản"
+usecase "Đăng nhập"
+usecase "Xem đơn hàng"
+usecase "Thanh toán"
+usecase "Theo dõi đơn hàng"
+usecase "Thu tiền (tại cửa hàng)"
+usecase "Theo dõi chuyển hàng"
+usecase "Quản lý Sản phẩm"
+usecase "Quản lý Tồn kho"
+usecase "Quản lý Doanh thu"
+usecase "Quản lý Khuyến mãi"
+usecase "Quản lý Xuất/Nhập hàng"
+usecase "Quản lý Người dùng"
+usecase "Quản lý Cửa hàng"
+
+
+
+"Khách hàng" --|> "Khách hàng tiềm năng"
+
+"Khách hàng tiềm năng" -- "Xem trang chủ"
+"Khách hàng tiềm năng" -- "Xem sản phẩm"
+"Khách hàng tiềm năng" -- "Xem chi tiết sản phẩm"
+"Khách hàng tiềm năng" -- "Xem khuyến mãi"
+"Khách hàng tiềm năng" -- "Xem so sánh"
+"Khách hàng tiềm năng" -- "Quản lý giỏ hàng"
+"Khách hàng tiềm năng" -- "Mua hàng"
+"Khách hàng tiềm năng" -- "Chat với người bán hàng"
+"Khách hàng tiềm năng" -- "Đăng ký tài khoản"
+
+"Khách hàng" -- "Đăng nhập"
+"Khách hàng" -- "Xem đơn hàng"
+"Khách hàng" -- "Thanh toán"
+
+"Người bán hàng" -- "Đăng nhập"
+"Người bán hàng" -- "Chat với người bán hàng"
+"Người bán hàng" -- "Theo dõi đơn hàng"
+"Người bán hàng" -- "Thu tiền (tại cửa hàng)"
+"Người bán hàng" -- "Theo dõi chuyển hàng"
+
+"Quản lý bán hàng" -- "Đăng nhập"
+"Quản lý bán hàng" -- "Quản lý Sản phẩm"
+"Quản lý bán hàng" -- "Quản lý Tồn kho"
+"Quản lý bán hàng" -- "Quản lý Doanh thu"
+"Quản lý bán hàng" -- "Quản lý Khuyến mãi"
+
+"Quản lý kho" -- "Đăng nhập"
+"Quản lý kho" -- "Quản lý Xuất/Nhập hàng"
+"Quản lý kho" -- "Quản lý Tồn kho"
+
+"Quản trị hệ thống" -- "Đăng nhập"
+"Quản trị hệ thống" -- "Quản lý Người dùng"
+"Quản trị hệ thống" -- "Quản lý Cửa hàng"
+
+"Xem sản phẩm" <.. "Tìm kiếm sản phẩm" : <<extend>>
+"Mua hàng" ..> "Quản lý giỏ hàng" : <<include>>
+"Mua hàng" ..> "Đăng nhập" : <<include>>
+"Xem đơn hàng" ..> "Đăng nhập" : <<include>>
+"Thanh toán" ..> "Đăng nhập" : <<include>>
+"Thanh toán" ..> "Xem đơn hàng" : <<include>>
+
+@enduml

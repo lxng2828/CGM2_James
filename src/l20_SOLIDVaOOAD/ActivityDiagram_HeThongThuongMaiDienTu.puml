@@ -1,0 +1,62 @@
+@startuml Hệ thống thương mại điện tử
+
+(*) --> "Truy cập trang web"
+
+partition "Khách hàng" {
+    --> "Xem/Tìm kiếm sản phẩm"
+    --> "Chọn sản phẩm"
+    --> "Xem chi tiết sản phẩm"
+    --> "Thêm vào giỏ hàng"
+    --> "Xem giỏ hàng"
+}
+
+partition "Hệ thống" {
+    if "Khách hàng đã đăng nhập?" then
+        --> [Đã đăng nhập] "Tiến hành Checkout" as checkout_point
+    else
+        --> [Chưa đăng nhập] "Yêu cầu Đăng nhập/Đăng ký"
+        if "Chọn Đăng nhập?" then
+            --> [Đăng nhập] "Nhập thông tin đăng nhập"
+            partition "Hệ thống" {
+                --> "Xác thực tài khoản"
+                if "Xác thực thành công?" then
+                    #Green--> [Thành công] checkout_point
+                else
+                    #Red--> [Thất bại] "Thông báo lỗi đăng nhập"
+                    --> (*)
+                endif
+            }
+        else
+            --> [Đăng ký] "Nhập thông tin đăng ký"
+            partition "Hệ thống" {
+                --> "Tạo tài khoản mới"
+                #Green--> "Đăng ký thành công"
+            }
+            --> checkout_point
+        endif
+    endif
+}
+
+partition "Khách hàng" {
+    checkout_point --> "Nhập thông tin giao hàng"
+    --> "Chọn phương thức thanh toán" as chon_pttt
+    --> "Xác nhận đặt hàng"
+}
+
+partition "Hệ thống" {
+    --> "Xử lý thanh toán"
+    if "Thanh toán thành công?" then
+        #Green--> [Thành công] "Tạo đơn hàng"
+        --> "Gửi xác nhận đơn hàng"
+        partition "Khách hàng" {
+            --> "Nhận xác nhận"
+            --> "Kết thúc mua hàng"
+            --> (*)
+        }
+    else
+        #Red--> [Thất bại] "Thông báo lỗi thanh toán"
+        --> chon_pttt
+    endif
+}
+
+@enduml
