@@ -2,15 +2,12 @@
 
 left to right direction
 
-
-
 actor "Khách hàng"
 actor "Khách hàng tiềm năng"
 actor "Người bán hàng"
 actor "Quản lý bán hàng"
 actor "Quản lý kho"
 actor "Quản trị hệ thống"
-
 
 usecase "Xem trang chủ"
 usecase "Xem sản phẩm"
@@ -35,8 +32,6 @@ usecase "Quản lý Khuyến mãi"
 usecase "Quản lý Xuất/Nhập hàng"
 usecase "Quản lý Người dùng"
 usecase "Quản lý Cửa hàng"
-
-
 
 "Khách hàng" --|> "Khách hàng tiềm năng"
 
